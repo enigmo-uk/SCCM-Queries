@@ -1,0 +1,1 @@
+select SMS_R_System.ResourceId, SMS_R_System.NetbiosName, SMS_R_System.SMBIOSGUID, SMS_R_System.MACAddresses, SMS_R_System.Build from  SMS_R_System
