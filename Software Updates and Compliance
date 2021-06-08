@@ -1,0 +1,11 @@
+select summ.ID,summ.title,summ.QNumbers as 'Q Number',
+COUNT(distinct ps.ResourceID) as 'Requested',
+COUNT(distinct case when ps.LastState=107 or ps.laststate=102 or ps.laststate=105 then ps.ResourceID else NULL End)  as 'Installed',
+ROUND(100.0*COUNT(distinct case when ps.LastState=107 or ps.laststate=102 or ps.laststate=105 then ps.ResourceID else NULL End)
+/count(distinct ps.ResourceID),2) as 'Success %'
+from v_GS_PatchStatusEx ps
+join v_ApplicableUpdatesSummaryEx summ on
+  ps.UpdateID=summ.UpdateID
+    where    (summ.Type='Microsoft Update') 
+group by summ.ID,summ.QNumbers,summ.title
+order by summ.ID
