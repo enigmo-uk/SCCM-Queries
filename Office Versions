@@ -1,0 +1,1 @@
+select SMS_R_System.Name, SMS_G_System_ADD_REMOVE_PROGRAMS_64.DisplayName, SMS_R_System.LastLogonUserName, SMS_R_System.LastLogonTimestamp from  SMS_R_System inner join SMS_G_System_ADD_REMOVE_PROGRAMS_64 on SMS_G_System_ADD_REMOVE_PROGRAMS_64.ResourceID = SMS_R_System.ResourceId where SMS_G_System_ADD_REMOVE_PROGRAMS_64.DisplayName like "Microsoft Office%"
