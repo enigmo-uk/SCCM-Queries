@@ -1,0 +1,1 @@
+select SMS_R_System.Name, SMS_R_System.LastLogonTimestamp, SMS_R_System.LastLogonUserName, SMS_R_System.OperatingSystemNameandVersion from  SMS_R_System inner join SMS_G_System_OPERATING_SYSTEM on SMS_G_System_OPERATING_SYSTEM.ResourceID = SMS_R_System.ResourceId where SMS_G_System_OPERATING_SYSTEM.Name like "%Windows 7%"
